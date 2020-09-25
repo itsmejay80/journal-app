@@ -1,0 +1,10 @@
+<div class="blog-list">
+    <ul>
+        {{#each model as |blog|}}
+        <li>
+            <span>{{blog.date}}</span>
+            {{#link-to 'blog' blog.id }}{{blog.title}}{{/link-to}}
+        </li>
+        {{/each}}
+    </ul>
+</div>

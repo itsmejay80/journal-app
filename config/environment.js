@@ -1,11 +1,27 @@
-'use strict';
+"use strict";
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'journal-app',
+    modulePrefix: "journal-app",
     environment,
-    rootURL: '/',
-    locationType: 'auto',
+    rootURL: "/",
+    locationType: "auto",
+
+    firebase: {
+      apiKey: "AIzaSyDpz3oRjRkSMoD-_jxtPyfQvrTDfWSPyoU",
+      authDomain: "journal-app-eef14.firebaseapp.com",
+      databaseURL: "https://journal-app-eef14.firebaseio.com",
+      projectId: "journal-app-eef14",
+      storageBucket: "journal-app-eef14.appspot.com",
+      messagingSenderId: "946588390350",
+      appId: "1:946588390350:web:3d271aa5393afa9fd6519f",
+    },
+    contentSecurityPolicy: {
+      "script-src": "'self' 'unsafe-eval' apis.google.com",
+      "frame-src": "'self' https://*.firebaseapp.com",
+      "connect-src": "'self' wss://*.firebaseio.com https://*.googleapis.com",
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -13,17 +29,17 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
 
-  if (environment === 'development') {
+  if (environment === "development") {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -31,19 +47,19 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = "none";
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
   }
 
-  if (environment === 'production') {
+  if (environment === "production") {
     // here you can enable a production-specific feature
   }
 
