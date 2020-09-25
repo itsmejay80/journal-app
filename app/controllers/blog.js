@@ -8,6 +8,11 @@ export default class BlogController extends Controller {
   @action
   toggleLike() {
     this.isLiked = !this.isLiked;
-    // if(this.isLiked){
+    if (this.isLiked) {
+      this.model.likes += 1;
+    } else {
+      this.model.likes -= 1;
+    }
+    this.model.save();
   }
 }
