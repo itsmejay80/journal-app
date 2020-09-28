@@ -3,7 +3,7 @@
         {{#each model as |blog|}}
         <li>
             <span>{{blog.date}}</span>
-            {{#link-to 'blog' blog.id }}{{blog.title}}{{/link-to}}
+            {{#link-to 'blog' blog.id class="blog-title"}}{{blog.title}}{{/link-to}}
         </li>
         {{/each}}
     </ul>

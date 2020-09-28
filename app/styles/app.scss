@@ -1,20 +1,27 @@
 @import "ember-bootstrap/bootstrap";
 
 .nav-container {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
 }
 
-.blog-list {
-  margin-top: 100px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  text-align: center;
+.nav-header {
+  font-weight: 300;
+  text-decoration: none;
+  font-family: "bree-serif", "Open Sans", Georgia, serif;
 }
+
+.blog-list {
+  margin-top: 50px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  font-family: "bree-serif", "Open Sans", Georgia, serif !important;
+}
+
 li {
-  display: block;
   list-style: none;
+  color: #1b3f4b;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
@@ -23,27 +30,43 @@ li {
 }
 
 li > span {
-  font-size: 12px;
+  color: #778489;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.blog-title {
+  font-size: 18px;
+  font-weight: 400;
+  color: inherit;
+  text-decoration: none;
 }
 
 .post {
-  margin-top: 20px;
+  width: 800px;
+  margin: 0 auto;
+  font-family: "bree-serif", "Open Sans", Georgia, serif !important;
+  margin-top: 30px;
   margin-bottom: 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: justify;
+}
+
+.post-header {
   text-align: center;
 }
 
 .post-title {
+  margin-top: 10px;
   font-family: "Open Sans", Helvetica, sans-serif;
   font-weight: 100;
-  text-transform: none;
   font-size: 48px;
   margin-bottom: 10px;
+  color: inherit;
+  text-transform: none;
 }
 .post-meta {
-  margin: 15px 0 10px;
+  text-align: center;
+  margin: 25px 0 10px;
   color: #1b3f4b;
   font-size: 14px;
   font-family: "PT Serif";
@@ -52,15 +75,25 @@ li > span {
 }
 
 .post-content {
+  margin-top: 15px;
   font-family: "PT Serif", "Baskerville", serif;
   font-size: 18px;
-  margin: 0 0 10px;
-  line-height: 150%;
-  margin-top: 20px;
+  line-height: 160%;
+  font-weight: 300;
+  color: #444;
+}
+
+.likes-block {
+  text-align: center;
 }
 
 .like-button {
   margin-top: 20px;
+}
+
+.like-button:hover {
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1.5) !important;
 }
 
 textarea {
