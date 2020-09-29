@@ -1,34 +1,10 @@
-{{!-- <div class="post">
-    <header class="post-header">
-        <h1 class="post-title" style="text-align: center;">{{model.title}}</h1>
-    </header>
-    <p class="post-li {
-//   list-style: none;
-//   color: #1b3f4b;
-//   margin-block-start: 1em;
-//   margin-block-end: 1em;
-//   margin-inline-start: 0px;
-//   margin-inline-end: 0px;
-//   padding-inline-start: 40px;
-// }
-
-// li > span {
-//   color: #778489;
-//   margin-right: 10px;
-//   font-size: 15px;
-// }t-content">
-        {{model.content}}
-    </p>
-    
-</div> --}}
 <div class="container blog-container">
     <div class="row">
         <div class="col-md-12">
             <div class="post">
                 <header class="blog-post-header">
                     <h1 class="post-title">{{ model.title }}</h1>
-                    <p class="post-meta">Published on {{model.date}}</p>
-                    {{!-- <p class="post-meta">Published on {{ model.date | date: "%b %-d, %Y" }} {% if page.author %} by {{ page.author }}{% endif %}</p> --}}
+                    <p class="post-meta">Published on {{model.date}} {{#if model.author}} by {{model.author}}{{/if}}</p>
                 </header>
                 <article class="post-content">
                     {{ model.content }}

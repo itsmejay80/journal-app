@@ -5,4 +5,5 @@ export default DS.Model.extend({
   content: DS.attr("string"),
   date: DS.attr("string"),
   likes: DS.attr("number"),
+  author: DS.attr("string"),
 });
