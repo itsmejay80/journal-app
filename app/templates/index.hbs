@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="post-list">
-                {{#each model as |blog|}}
+                {{#each  sortedBlogs  as |blog|}}
                 <li>
                     <span class="post-meta">{{blog.date}}</span>
                     {{#link-to 'blog' blog.id class="blog-title"}}{{blog.title}}{{/link-to}}
