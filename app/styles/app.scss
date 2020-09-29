@@ -1,7 +1,261 @@
 @import "ember-bootstrap/bootstrap";
 
+//Variables
+$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-size: 16px;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.5;
+$serif: "bree-serif", "Open Sans", Georgia, serif;
+$sans: bree, "Open Sans", Helvetica, sans-serif;
+$sansAlt: $sans;
+$mono: $serif;
+$yl: #e8ea1c;
+$red: #ee4853;
+$lightG: #f0f3f4;
+$vibBlue: #10a7c7;
+$dark: #1b3f4b;
+$darkBlue: #1a3f4a;
+$black: #332222;
+
+$spacing-unit: 30px;
+
+$text-color: #111;
+$background-color: #fdfdfd;
+$brand-color: #2a7ae2;
+
+$grey-color: #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark: darken($grey-color, 25%);
+
+$on-palm: 600px;
+$on-laptop: 800px;
+
+//social icons colors
+$fb: #3b5998;
+$gplus: #dd4b39;
+$tw: #00aced;
+$tmblr: #32506d;
+
+$screen-sm: 768px;
+$screen-sm-min: $screen-sm;
+
+$screen-xs: 480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min: $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone: $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm: 768px !default;
+$screen-sm-min: $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet: $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md: 992px !default;
+$screen-md-min: $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop: $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg: 1200px !default;
+$screen-lg-min: $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop: $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;
+
+$container-tablet: ((720px + $grid-gutter-width)) !default;
+//** For `$screen-sm-min` and up.
+$container-sm: $container-tablet !default;
+
+// Medium screen / desktop
+$container-desktop: ((940px + $grid-gutter-width)) !default;
+//** For `$screen-md-min` and up.
+$container-md: $container-desktop !default;
+
+// Large screen / wide desktop
+$container-large-desktop: ((1140px + $grid-gutter-width)) !default;
+//** For `$screen-lg-min` and up.
+$container-lg: $container-large-desktop !default;
+
+//== Navbar
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@include media-query($on-laptop) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width: calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-3 {
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+@include media-query($on-palm) {
+  .footer-col {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+.container {
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+.row {
+  @include make-row();
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Basic styling
+ */
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 300;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: $small-font-size;
+}
+
+/**
+ * Lists
+ */
+ul,
+ol {
+  margin-left: $spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
+#blog-nav {
+  margin-top: 20px;
+  text-align: center;
+  #blog-logo {
+  }
+  span {
+    color: $dark;
+    font-weight: 300;
+    font-family: $serif;
+    margin-top: 14px;
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 15px;
+    &:before {
+      content: "\002F";
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+.row {
+  justify-content: center;
+}
+
 .nav-container {
-  margin-top: 30px;
+  // margin-top: 30px;
   text-align: center;
 }
 
@@ -19,20 +273,47 @@
   font-family: "bree-serif", "Open Sans", Georgia, serif !important;
 }
 
-li {
-  list-style: none;
-  color: #1b3f4b;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
+.post-list {
+  margin: 50px 0 0;
+  padding-left: 0;
+  @media (min-width: $screen-sm-min) {
+    margin-top: 100px;
+  }
+  li {
+    list-style: none;
+    font-family: $mono !important;
+    margin-bottom: 10px;
+    h4 {
+      font-family: $serif !important;
+      text-transform: none;
+      display: inline;
+      font-weight: 400;
+      color: $dark;
+      line-height: 160%;
+      a {
+        color: inherit;
+      }
+    }
+    .post-meta {
+      color: desaturate(lighten($dark, 30%), 40%);
+      font-weight: 300;
+      font-size: 12px;
+      width: 75px;
+      display: inline-block;
+      text-align: right;
+      margin-right: 15px;
+    }
+  }
 }
 
-li > span {
-  color: #778489;
-  margin-right: 10px;
-  font-size: 15px;
+.post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
+}
+
+.post-link {
+  display: block;
+  font-size: 24px;
 }
 
 .blog-title {
@@ -42,50 +323,147 @@ li > span {
   text-decoration: none;
 }
 
-.post {
-  width: 800px;
-  margin: 0 auto;
-  // font-family: "bree-serif", "Open Sans", Georgia, serif !important;
-  margin-top: 30px;
-  margin-bottom: 0;
-  text-align: justify;
-}
-
 .post-header {
-  text-align: center;
+  margin-bottom: $spacing-unit;
 }
 
 .post-title {
-  margin-top: 10px;
-  font-family: "Open Sans", Helvetica, sans-serif;
-  font-weight: 100;
-  font-size: 48px;
-  margin-bottom: 10px;
-  color: inherit;
-  text-transform: none;
-}
-.post-meta {
-  text-align: center;
-  margin: 25px 0 10px;
-  color: #1b3f4b;
-  font-size: 14px;
-  font-family: "PT Serif";
-  font-weight: 400;
-  font-style: italic;
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+
+  @include media-query($on-laptop) {
+    font-size: 36px;
+  }
 }
 
 .post-content {
-  margin-top: 15px;
-  font-family: "PT Serif", "Baskerville", serif;
-  font-size: 18px;
-  line-height: 160%;
-  font-weight: 300;
-  color: #444;
+  margin-bottom: $spacing-unit;
+
+  h2 {
+    font-size: 32px;
+
+    @include media-query($on-laptop) {
+      font-size: 28px;
+    }
+  }
+
+  h3 {
+    font-size: 26px;
+
+    @include media-query($on-laptop) {
+      font-size: 22px;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+
+    @include media-query($on-laptop) {
+      font-size: 18px;
+    }
+  }
 }
 
-.likes-block {
+.post {
+  font-family: $mono !important;
+  margin-top: 20px;
+  margin-bottom: 0;
+  @media (min-width: $screen-sm-min) {
+    margin-top: 50px;
+  }
+  a {
+    color: lighten($dark, 20%);
+  }
+  .post-title {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-weight: 100;
+    text-transform: none;
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  .post-author {
+    margin-bottom: 30px;
+
+    font-family: Baskerville, serif;
+  }
+  p {
+    font-family: "PT Serif", "Baskerville", serif;
+    font-size: 18px;
+    line-height: 160%;
+    font-weight: 300;
+    color: #444;
+    @media (max-width: $screen-xs-max) {
+      font-size: 18px;
+      line-height: 150%;
+    }
+  }
+  .post-meta {
+    margin: 15px 0 10px;
+    color: $dark;
+    font-size: 13px;
+    font-family: "PT Serif";
+    font-weight: 400;
+    font-style: italic;
+  }
+  .post-content {
+    margin-top: 20px;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+.blog-post-header {
   text-align: center;
 }
+
+.blog-container {
+  max-width: 800px;
+}
+
+// .post {
+//   width: 800px;
+//   margin: 0 auto;
+//   // font-family: "bree-serif", "Open Sans", Georgia, serif !important;
+//   margin-top: 30px;
+//   margin-bottom: 0;
+//   text-align: justify;
+// }
+
+// .post-header {
+//   text-align: center;
+// }
+
+// .post-title {
+//   margin-top: 10px;
+//   font-family: "Open Sans", Helvetica, sans-serif;
+//   font-weight: 100;
+//   font-size: 48px;
+//   margin-bottom: 10px;
+//   color: inherit;
+//   text-transform: none;
+// }
+// .post-meta {
+//   text-align: center;
+//   margin: 25px 0 10px;
+//   color: #1b3f4b;
+//   font-size: 14px;
+//   font-family: "PT Serif";
+//   font-weight: 400;
+//   font-style: italic;
+// }
+
+// .post-content {
+//   margin-top: 15px;
+//   font-family: "PT Serif", "Baskerville", serif;
+//   font-size: 18px;
+//   line-height: 160%;
+//   font-weight: 300;
+//   color: #444;
+// }
+
+// .likes-block {
+//   text-align: center;
 
 .like-button {
   margin-top: 20px;
@@ -96,8 +474,23 @@ li > span {
   transform: scale(1.5) !important;
 }
 
-textarea {
-  margin-top: 20px;
+#private-message {
+  margin: 30px 0 0;
+  .btn-primary {
+    font-family: $sans;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 400;
+    color: $darkBlue;
+    &:hover {
+      text-decoration: underline;
+      background: none;
+      color: $red;
+    }
+  }
+  textarea {
+    font-family: $serif;
+  }
 }
 
 .share-icons {
@@ -106,4 +499,18 @@ textarea {
 
 .icons:hover {
   opacity: 0.7;
+}
+
+#blog-footer {
+  color: #1b3f4b;
+  /*border-top: 1px solid #f0f0f0;*/
+  margin-top: 20px;
+  /*padding-top: 25px;*/
+  margin-bottom: 30px;
+  font-weight: 100;
+  font-family: bree, "Open Sans", Helvetica, sans-serif;
+  bottom: 0;
+  padding-left: 10px;
+  position: fixed;
+  width: 800px;
 }

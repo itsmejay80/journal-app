@@ -1,12 +1,43 @@
-<div class="post">
+{{!-- <div class="post">
     <header class="post-header">
         <h1 class="post-title" style="text-align: center;">{{model.title}}</h1>
     </header>
-    <p class="post-meta">Published on {{model.date}}</p>
-    <p class="post-content">
+    <p class="post-li {
+//   list-style: none;
+//   color: #1b3f4b;
+//   margin-block-start: 1em;
+//   margin-block-end: 1em;
+//   margin-inline-start: 0px;
+//   margin-inline-end: 0px;
+//   padding-inline-start: 40px;
+// }
+
+// li > span {
+//   color: #778489;
+//   margin-right: 10px;
+//   font-size: 15px;
+// }t-content">
         {{model.content}}
     </p>
-    <div class="likes-block">
+    
+</div> --}}
+<div class="container blog-container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="post">
+                <header class="blog-post-header">
+                    <h1 class="post-title">{{ model.title }}</h1>
+                    <p class="post-meta">Published on {{model.date}}</p>
+                    {{!-- <p class="post-meta">Published on {{ model.date | date: "%b %-d, %Y" }} {% if page.author %} by {{ page.author }}{% endif %}</p> --}}
+                </header>
+                <article class="post-content">
+                    {{ model.content }}
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
         <button {{on "click" this.toggleLike}} style="outline: none; border:none" class="like-button">
             {{#if isLiked}}
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -21,15 +52,22 @@
             {{/if}}
         </button>
         <span>{{model.likes}}</span>
-        <br />
-        <form action=""></form>
-        <textarea name="" id="" cols="70" rows="5"></textarea>
-        <br />
-        <button type="button" style="margin-top: 10px;" class="btn btn-outline-primary mt-10">SEND PRIVATE COMMENT<svg
-                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z" /></svg>
-        </button>
-        <br />
+    </div>
+    <div class="row" id="private-message">
+        <div class="col-md-8 col-md-offset-2">
+            <form id="private-message-form" accept-charset="UTF-8" action="http://hashcookies.net/contact/hashcookies"
+                method="POST">
+                <input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="form_id" value="post-comment-form" />
+                <textarea name="message" class="form-control"></textarea>
+                <div class="text-center">
+                    <button type="button" style="margin-top: 10px;" class="btn btn-outline-primary mt-10">SEND PRIVATE
+                        COMMENT<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z" /></svg>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="share-icons" style="text-align: center;">
@@ -75,4 +113,7 @@
             </svg>
         </a>
     </div>
+
+    <Footer />
+
 </div>
