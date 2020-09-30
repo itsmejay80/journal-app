@@ -1,14 +1,19 @@
 import Controller from "@ember/controller";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
-// import MarkdownIt from "markdown-it";
-// import { htmlSafe } from "@ember/string";
-// import { computed } from "@ember/object";
+import MarkdownIt from "markdown-it";
+import { htmlSafe } from "@ember/string";
+import { computed } from "@ember/object";
 
-// const md = new MarkdownIt();
+const md = new MarkdownIt();
 
 export default class BlogController extends Controller {
   @tracked isLiked = false;
+  // @tracked source = this.model.content;
+
+  // html = computed("source", () => {
+  //   return htmlSafe(md.render(source));
+  // });
 
   @action
   toggleLike() {
