@@ -12,7 +12,7 @@ export default class BlogController extends Controller {
   // @tracked source = this.model.content;
 
   // html = computed("source", () => {
-  //   return htmlSafe(md.render(source));
+  //   return htmlSafe(md.render(this.source));
   // });
 
   @action
