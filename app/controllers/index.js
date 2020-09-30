@@ -5,6 +5,6 @@ import { tracked } from "@glimmer/tracking";
 
 export default class IndexController extends Controller {
   @tracked blogs = this.model;
-  todosSortingDesc = ["date:desc"];
+  todosSortingDesc = ["timestamp:desc"];
   @sort("blogs", "todosSortingDesc") sortedBlogs;
 }
